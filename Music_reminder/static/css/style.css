@@ -1,12 +1,44 @@
-.container{
-    margin-right: 10%;
-    margin-left: 10%;
+.contaner{
+    height: 700px;
+    width: 100%;
+    background-color: chartreuse;
 }
+
+
+
+header{
+    position: relative;
+    height: 100px;
+}
+nav{
+    padding-top: 10mm;
+    height: 100px;
+    background-color: brown;
+}
+nav a{
+    color: black;
+    margin: 20px;
+    position: relative;
+    width: 100px;
+    left: 50px;
+  
+}
+
+article{
+    border: 1px rebeccapurple;
+}
+
+body{
+    width: 100%;
+}
+/* .photom{
+
+} */
+
 .carousel{
     position: relative;
-    margin-top: 25px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-bottom: 10%;
+
 }
-
-
