@@ -8,4 +8,4 @@ def home(request):
     timestamp = datetime.timestamp(now)
 
     return render(request,"home.html",{"song_timestamp":timestamp})
-  
+    
