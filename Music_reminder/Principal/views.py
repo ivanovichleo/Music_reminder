@@ -1,11 +1,12 @@
 from django.shortcuts import render
-from datetime import datetime
+import datetime
+from .Database import mongo
 def home(request):
     
-    # current date and time
-    now = datetime.now()
+    
+    db=mongo()
+    songs_info,num_songs=db.querymusic()
+    print(songs_info)
 
-    timestamp = datetime.timestamp(now)
-
-    return render(request,"home.html",{"song_timestamp":timestamp})
+    return render(request,"home.html",{"songs":songs_info,"List":range(num_songs)})
     

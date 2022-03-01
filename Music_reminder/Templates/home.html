@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head >
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,47 +10,52 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
-    <title>{{song_timestamp}}</title>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    <title>Music Reminder</title>
 </head>
 
-<body>
+<body onload="showSlides()" >
 <header>
 <nav>
     <a href="/Home">Home</a>  
-    <a href="/about">About</a>
+    <a href="https://phta-test.herokuapp.com/">About</a>
     <a href="/">Empty</a>
 </nav>
 </header>
 
 
 <div class="contaner">
-    
-     <div class="reminder">
+  {%for song in songs.history %}
+    <div class="reminder">
+
         <div class="content_m">
-        <img src="../Static/Img/flames.png" alt="..."  >
-          
-        </div>
-      
-       <div class="content_m">
+          <div class="top">
+           <a href="{{song.link}}"><img src="../Static/Img/{{song.img_name}}" alt="..."  >   </a> 
+          </div>
+        
+
+    </div>
+      <div class="content_m">
         <div class="top">
               <h3>
-                <a href="/my-blog-post">i miss you </a>
+                {{song.Song}}
               </h3>
             <section>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra nec nulla vitae mollis.</p>
-            </section>
-            <footer>
+              <p> haz escuchado la canción {{song.Song}} de {{song.Artist}} un total de {{song.Times_played}} veces
+            <footer>  
               <small>
-                Posted on <time datetime="2017-04-29T19:00">Apr 29</time> in <a href="/category/code">Code</a>
+                Posted on <time datetime="{{song.last_played}}">Apr 29</time> in <a href="/category/code">Code</a>
               </small>
             </footer>
         </div>
-          
       </div>
-      <label class="next" >></label>
-      <label class="prev" ><</label>
- 
      </div>
+     {%endfor%}
+     <label class="next" onclick="plusSlides(1)">></label>
+      <label class="prev" onclick="plusSlides(-1)"><</label>
+</div>
+<div class="footer">
+  
 </div>
 </body>
 </html>
