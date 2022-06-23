@@ -6,10 +6,8 @@ import datetime
 class mongo:
 
     def __init__(self) -> None:
-        self.conection=pymongo.MongoClient("mongodb+srv://music_search:Reminder@cluster0.hadso.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-
-
-
+        # self.conection=pymongo.MongoClient("mongodb+srv://music_search:@cluster0.hadso.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        self.conection=pymongo.MongoClient("mongodb+srv://music_search:Reminder@cluster0.hadso.mongodb.net/?retryWrites=true&w=majority")
 
     def querymusic(self):
         # recive the user to get the info and comapare the tiempstamp of now  with the tiempstamp of the song 
