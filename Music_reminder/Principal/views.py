@@ -8,5 +8,5 @@ def home(request):
     songs_info,num_songs=db.querymusic()
     print(songs_info)
 
-    return render(request,"home.html",{"songs":songs_info,"List":range(num_songs)})
+    return render(request,"index.html",{"songs":songs_info,"List":range(num_songs)})
     
